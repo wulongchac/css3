@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .box{
+        margin: 0 auto;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        font-size: 20px;
+        text-transform:uppercase;
+        letter-spacing: 3px;
+    }
+    .box::after,.box::before{
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 100%;
+        background: #fff;
+        opacity: 0;
+        transform:scale(0);
+    }
+    .box::after{left: 50%;animation: lefts 1s cubic-bezier(0.7,-0.7,0.3,1.5) forwards;}
+    .box::before{right:50%;animation: rights 1s  cubic-bezier(0.7,-0.7,0.3,1.5) forwards;}
+
+    .box span{
+        opacity: 0;
+        transform: scale(0);
+        animation: ani 2.3s forwards;
+    }
+
+    @keyframes lefts {
+      to{
+          left: -15%;
+          opacity: 1;
+          transform:scale(1);
+      }
+    }
+    @keyframes rights {
+       to{
+           right: -15%;
+           opacity: 1;
+           transform: scale(1);
+       }
+    }
+
+    @keyframes ani {
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
+<body>
+<div class="box">hello  world  hi!~</div>
+</body>
+<script>
+    var letter = document.querySelector('.box');
+    var letterArray = letter.innerHTML.split('');
+
+
+    // let middle = letterArray.filter(e => e !== " ").length / 2;
+    let middle = letterArray.length / 2;
+    console.log(middle);
+
+    letter.innerHTML = '';
+    letterArray.forEach(function (v,i) {
+       var span = document.createElement('span');
+       span.innerHTML = v;
+       span.style.animationDelay = `${Math.abs(i-middle)*0.05}s`
+       letter.append(span);
+    })
+</script>
+</html>

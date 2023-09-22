@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        margin:0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background: #000;
+    }
+    .box{
+        margin: 0 auto;
+        border: 1px solid #fff;
+
+        width: 100px;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        color: #fff;
+    }
+
+    .box .btn-text{
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /*opacity: 0;*/
+        /*animation: ani .3s ease-in;*/
+
+        transition: 0.75s 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+
+    }
+    .box .btn-text1{
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(25%);
+    }
+
+    .box:hover .btn-text{
+        /*animation: ani .3s ease-in;*/
+        /*transition: .3s ease-out;*/
+        opacity: 0;
+        transform: translateY(-25%);
+        transition: 0.25s ease-out;
+
+
+    }
+    .box:hover .btn-text1{
+        opacity: 1;
+        transform: translateY(0%);
+        transition: 0.2s ease-out;
+    }
+
+    .box-borders{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .box-left{
+        position: absolute;
+        left: -1px;
+        width: 2px;
+        height: 100%;
+        background:blueviolet;
+        transform: scaleY(0);
+        /*transition:transform .3s ease-out;*/
+        transform-origin: bottom;
+
+        transition:0.65s 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .box-top{
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: -1px;
+        top:-1px;
+        background: blueviolet;
+        transform: scaleX(0);
+        /*transition:transform .3s ease-out;*/
+        transform-origin: left;
+        /*transition-delay: .3s;*/
+        transition: 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+    .box-right{
+        position: absolute;
+        width: 2px;
+        height: 101%;
+        top: -1px;
+        right: -1px;
+        background: blueviolet;
+        transform: scaleY(0);
+        /*transition: transform .3s ease-out;*/
+        transform-origin: bottom;
+        /*transition-delay: .3s;*/
+        transition: 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+    .box-bottom{
+        position: absolute;
+        width: 102%;
+        height: 2px;
+        bottom: -1px;
+        left: -1px;
+        background: blueviolet;
+        transform: scaleX(0);
+        /*transition: transform .3s ease-out;*/
+        transform-origin: left;
+        transition:0.65s 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .box:hover .box-left{
+        transform: scaleY(1);
+        transition: 0.25s  cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+
+    .box:hover .box-top {
+        transform: scaleX(1);
+        transition: 0.65s cubic-bezier(0.19, 1, 0.22, 1)  0.25s;
+    }
+
+    .box:hover .box-right{
+        transform: scaleY(1);
+        transition: 0.65s  cubic-bezier(0.19, 1, 0.22, 1)  0.25s;
+    }
+
+    .box:hover .box-bottom {
+        transform: scaleX(1);
+        transition: 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
+
+
+
+    @keyframes ani {
+        33% {
+            transform: translateY(-25%);
+            opacity: 0;
+        }
+        66% {
+            transform: translateY(25%);
+            opacity: .3;
+        }
+        to{
+            transform: translateY(0%);
+            opacity: 1;
+        }
+    }
+</style>
+<body>
+<div class="box">
+   <div class="box-borders">
+       <div class="box-left"></div>
+       <div class="box-top"></div>
+       <div class="box-right"></div>
+       <div class="box-bottom"></div>
+   </div>
+    <span class="btn-text">start</span>
+    <span class="btn-text1">start</span>
+</div>
+</body>
+</html>

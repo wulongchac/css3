@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background-color: #000;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+
+    .box{
+        width: 150px;
+        height: 150px;
+        background-color: #000;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin-top: -75px;
+        margin-left: -75px;
+        border-radius: 50%;
+        box-shadow: inset 10px -10px crimson;
+        animation: sken 2s linear infinite;
+    }
+    .box:after,.box:before{
+        position: absolute;
+        content:"";
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        box-shadow: inherit;
+        border-radius: inherit;
+    }
+    .box::after{
+       filter: blur(5px);
+    }
+    .box::before{
+        filter:blur(10px) contrast(50%);
+    }
+
+    @keyframes sken {
+        100% {transform: rotate(1turn)}
+    }
+</style>
+<body>
+<div class="box"></div>
+</body>
+</html>

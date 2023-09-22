@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background: #000;
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+    }
+    .box{
+        margin: 0 auto;
+        text-transform:uppercase;
+        color: #fff;
+        border:2px solid #6ee1f5;
+        padding: 15px 24px;
+        cursor: pointer;
+        letter-spacing: 3px;
+        position: relative;
+        overflow: hidden;
+    }
+    .box:hover{
+        box-shadow: 0 0 30px chartreuse;
+    }
+    .box:hover::before {
+        transform: translateX(100%);
+    }
+    .box::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: #fff;
+        left: 0;
+        top:0;
+        opacity: 1;
+        /*transition:ani .4s ease-in;*/
+        background: linear-gradient(120deg,transparent,hsl(187,87%,40%),transparent);
+        transform: translateX(-100%);
+        transition: 0.6s;
+    }
+</style>
+<body>
+<div class="box">hover me</div>
+</body>
+</html>
